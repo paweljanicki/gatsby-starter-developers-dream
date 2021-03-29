@@ -38,6 +38,9 @@ const PostTemplate = ({
     identifier: mdx.frontmatter.id,
     title: mdx.frontmatter.title,
   };
+  const displayComments =
+    (mdx.frontmatter.comments || mdx.frontmatter.comments === null) &&
+    !!mdx.frontmatter.id;
 
   return (
     <MainLayout>
@@ -45,11 +48,7 @@ const PostTemplate = ({
       <main className={styles.main}>
         <h1>{mdx.frontmatter.title}</h1>
         <MDXRenderer>{mdx.body}</MDXRenderer>
-        {mdx.frontmatter.comments || mdx.frontmatter.comments === null ? (
-          <Disqus config={disqusConfig} />
-        ) : (
-          ``
-        )}
+        {displayComments && <Disqus config={disqusConfig} />}
       </main>
     </MainLayout>
   );

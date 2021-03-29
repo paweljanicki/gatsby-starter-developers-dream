@@ -44,9 +44,7 @@ const PageTemplate = ({
     identifier: mdx.frontmatter.id,
     title: mdx.frontmatter.title,
   };
-  const displayComments =
-    (mdx.frontmatter.comments || mdx.frontmatter.comments === null) &&
-    !!mdx.frontmatter.id;
+  const displayComments = mdx.frontmatter.comments && !!mdx.frontmatter.id;
   return (
     <MainLayout>
       <SEO config={seoConfig}></SEO>
@@ -64,7 +62,7 @@ const PageTemplate = ({
           <h1>{mdx.frontmatter.title}</h1>
         )}
         <MDXRenderer>{mdx.body}</MDXRenderer>
-        {displayComments ? <Disqus config={disqusConfig} /> : ``}
+        {displayComments && <Disqus config={disqusConfig} />}
       </main>
     </MainLayout>
   );

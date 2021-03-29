@@ -47,9 +47,7 @@ const PageSidebarTemplate = ({
     title: mdx.frontmatter.title,
   };
 
-  const displayComments =
-    (mdx.frontmatter.comments || mdx.frontmatter.comments === null) &&
-    !!mdx.frontmatter.id;
+  const displayComments = mdx.frontmatter.comments && !!mdx.frontmatter.id;
   return (
     <MainLayout>
       <SEO config={seoConfig}></SEO>
@@ -69,7 +67,7 @@ const PageSidebarTemplate = ({
         <section className={styles.content}>
           <article>
             <MDXRenderer>{mdx.body}</MDXRenderer>
-            {displayComments ? <Disqus config={disqusConfig} /> : ``}
+            {displayComments && <Disqus config={disqusConfig} />}
           </article>
           <aside className={styles.sidebar}>
             {mdx.frontmatter.sidebar &&
