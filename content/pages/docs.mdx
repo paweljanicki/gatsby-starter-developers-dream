@@ -1,0 +1,167 @@
+---
+title: Documentation
+slug: docs
+publishedTime: '2021-03-28'
+template: PageSidebarTemplate
+sidebar: ['Tags']
+published: true
+---
+
+1. <AnchorLink to="#editing-content" title="Editing content" />
+2. <AnchorLink to="#menus" title="Menus" />
+3. <AnchorLink to="#icons" title="Icons" />
+
+<h3 id="editing-content">Editing content</h3>
+
+<h4 id="frontmatter">Frontmatter</h4>
+
+At the beginning of MDX file you should always include Frontmatter, it's a metadata of the post/page you are creating.
+It's fields are later used to build post/page, order them and so on.
+If you mistype one of them it will break the website and you will get an error in termial, so watch out for this.
+Unfortunately there is no type checking available as it's MDX.
+
+This is the most basic Frontmatter example to get you started:
+
+```md
+---
+title: Test Post
+slug: 'test-post'
+publishedTime: '2020-05-11'
+published: true
+id: 'wder8233rrj'
+---
+```
+
+List of all available Frontmatter fields
+
+```md
+---
+title: Hello World! # Required (string)
+slug: hello-world # Required (string)
+published: true # Required (boolean)
+id: 'asdsd23123d' # Required for posts (string)
+publishedTime: '2020-05-10' # Required (string) NOTE: PUT DATE IN QUOTES
+modifiedTime: '2020-05-15' # Optional (string) NOTE: PUT DATE IN QUOTES
+heroImage: home-hero.jpg # Optional (path) PATH to the image
+cssClasses: 'homepage' # Optional (string) CSS classes for styling
+seoTitle: Custom seo only title # Optional (string)
+description: This is a custom Meta description # Optional (string)
+author: Joe Doe # Optional (string)
+template: PostTemplate # Optional (string)
+# available templates PostTemplate, PageTemplate and PageSidebarTemplate
+---
+```
+
+<h4 id="shortcodes">Shortcodes</h4>
+
+Moving one step forward you can use React components without importing them every time.
+
+Check `src/layouts/MainLayout/MainLayout.tsx`. Shortcodes are passed to the `MDXProvider` component
+
+```tsx
+<MDXProvider components={shortcodes}></MDXProvider>
+```
+
+At the moment following shortcodes are available:
+
+1. <h5 id="shortcodes-video">Video</h5>
+
+   Video shortcode supports any video available to embed using a url. YouTube, Vimeo etc.
+   It adjusts it's width to the parent element.
+
+   Example usage:
+
+   ```md
+    <Video url="https://www.youtube.com/embed/LdvPwr_77A0" />
+   ```
+
+   Source: `src/components/Video/Video.tsx`
+
+2. <h5 id="shortcodes-codepen">CodePen</h5>
+
+   Shortcode used to embed a CodePen project.
+   The component uses a bunch of consts you can adjust in `config/site.config.ts`.
+
+   It accepts following props:
+
+   ```typescript
+   id: string; // required
+   height: number; // optional
+   title: string; // optional
+   tabs: string; // optional
+   theme: string; // optional
+   ```
+
+   Example:
+
+   ```md
+     <CodePen id="eYNbGzV" height="400" tabs="js,result" />
+   ```
+
+   Source: `src/components/CodePen/CodePen.tsx`
+
+3. <h5 id="shortcodes-externallink">ExternalLink</h5>
+
+   Shortcode used to add an external link (opened in new tab).
+   Accepts `url: string` and any content you want to put inside.
+
+   Example:
+
+   ```md
+   <ExternalLink url="https://mdxjs.com/">learn MDX here</ExternalLink>
+   ```
+
+   Source: `src/components/Helpers/links.tsx`
+
+4. <h5 id="shortcodes-anchorlink">AnchorLink</h5>
+
+   Shortcode used to add a link to an anchor within the website. Could refer to anchor on any page.
+   AnchorLink component is imported directly from `gatsby-plugin-anchor-links`.
+   It offers smooth scrolling both within the same page as well as when switching pages.
+   Global plugin config, such as offset from the top is configured in `.gatsby/gatsby-config.ts`
+
+   Example:
+
+   ```md
+   <AnchorLink to="/docs#shortcodes-video" title="Video" />
+   <AnchorLink to="#icons" title="Icons" />
+   ```
+
+   For more information about the plugin refer to their <ExternalLink url="https://www.gatsbyjs.com/plugins/gatsby-plugin-anchor-links/">official documentation</ExternalLink>.
+
+5. <h5 id="shortcodes-blogpostslist">BlogPostsList</h5>
+
+   Shortcode used to display a list of all blog posts. Currently doesn't offer any config.
+
+   Example:
+
+   ```md
+   <BlogPostsList />
+   ```
+
+   Source: `src/components/BlogPostsList/BlogPostsList.tsx`
+
+##### Adding a new shortcode
+
+Open `src/components/shortcodes.ts`
+
+Import the component you want to use as a shortcode.
+
+Add it to `export const shortcodes = {}`
+
+<h3 id="menus">Menus</h3>
+
+To edit menu items open `config/menus.config.ts`
+
+To edit items in the main menu (header/tap-bar) edit `mainMenuItems`.
+
+To edit items in the social media menu..
+
+<h3 id="icons">Icons</h3>
+
+FortAwesome icons included. Yes, not FontAwesome, but actually some of them are the same.
+What you need to know:
+
+1. Navigate to `src/utils/fontawesome.ts`
+2. Import icons you want to use
+3. Add them to the `library.add()` method

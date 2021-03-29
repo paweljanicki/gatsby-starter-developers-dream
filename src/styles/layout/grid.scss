@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+@import '../abstracts/variables';
+
+@mixin mainContent {
+  max-width: calc(#{$mainContentWidth} + 2 * #{$mainContentPadding});
+  margin: 0 auto;
+  padding: 0 $mainContentPadding;
+}
+
+@mixin conteredContent {
+  max-width: calc(#{$centeredContentWidth} + 2 * #{$centeredContentPadding});
+  margin: 0 auto;
+  padding: 0 $centeredContentPadding;
+}

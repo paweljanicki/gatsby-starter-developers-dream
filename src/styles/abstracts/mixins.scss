@@ -1,0 +1,12 @@
+@mixin heroImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 60vh;
+  margin: 0 (-$mainContentPadding);
+  padding: 0 $mainContentPadding;
+}
+
+@mixin pageTitle {
+}

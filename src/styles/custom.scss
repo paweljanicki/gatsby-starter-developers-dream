@@ -1,0 +1,11 @@
+.homepage,
+.aboutpage {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.homepage__content,
+.aboutpage__content {
+  @include media-breakpoint-up(md) {
+    font-size: 1.25rem;
+  }
+}

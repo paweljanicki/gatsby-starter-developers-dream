@@ -1,0 +1,26 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/layout/grid';
+
+.link {
+  text-decoration: none;
+  color: initial;
+}
+
+.tile {
+  @include media-breakpoint-up(md) {
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid $colorGreyLight;
+  border-radius: 0.25rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+}

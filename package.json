@@ -1,31 +1,75 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "gatsby-starter-developers-dream",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Gatsby starter written in TypeScript + MDX + SCSS modules for styling. Intended to be used as a personal website or blog, with extra features for a tech blog",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,mdx,ts,tsx}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "lint": "eslint './**/*.ts*' --ignore-path .gitignore",
+    "lint:fix": "eslint './**/*.ts*' --fix --ignore-path .gitignore",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^2.21.13",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@types/mdx-js__react": "^1.5.3",
+    "bootstrap": "^4.6.0",
+    "gatsby": "^3.1.2",
+    "gatsby-background-image": "^1.5.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-disqus": "^1.2.2",
+    "gatsby-plugin-google-tagmanager": "^3.1.0",
+    "gatsby-plugin-image": "^1.1.2",
+    "gatsby-plugin-mdx": "^2.1.0",
+    "gatsby-plugin-next-seo": "^1.7.0",
+    "gatsby-plugin-sass": "^4.1.0",
+    "gatsby-plugin-sharp": "^3.1.2",
+    "gatsby-plugin-twitter": "^3.1.0",
+    "gatsby-remark-images": "^4.1.1",
+    "gatsby-remark-import-code": "^0.1.1",
+    "gatsby-remark-vscode": "^3.2.1",
+    "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-transformer-json": "^3.1.0",
+    "gatsby-transformer-sharp": "^3.1.0",
+    "gbimage-bridge": "^0.1.1",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.9",
+    "remark-code-import": "^0.2.0"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "gatsby-plugin-ts-config": "^1.1.5",
+    "node-sass": "^5.0.0",
+    "prettier": "2.2.1",
+    "typescript": "^4.2.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/paweljanicki/gatsby-starter-developers-dream"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/paweljanicki/gatsby-starter-developers-dream/issues"
   }
 }

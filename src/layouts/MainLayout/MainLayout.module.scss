@@ -1,0 +1,16 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/layout/grid';
+
+.MainLayout {
+  @include media-breakpoint-up(md) {
+    padding-top: $headerHeight;
+    padding-bottom: 0;
+  }
+  padding-bottom: $tapBarHeight;
+}
+
+.MainLayout__tapBar {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

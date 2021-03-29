@@ -1,0 +1,81 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/zIndex';
+@import '../../../styles/layout/grid';
+
+.Header {
+  @include media-breakpoint-up(md) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $headerHeight;
+  }
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  z-index: $zIndexHeader;
+  width: 100%;
+  height: $headerHeightMobile;
+  padding: 0 $mainContentPadding;
+  border-bottom: 1px solid $colorGreyLight;
+  background: $colorWhite;
+}
+
+.SiteTitle {
+  margin: 0;
+}
+
+.MenusSection {
+  display: flex;
+  height: 100%;
+}
+
+.Menu {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  display: none;
+}
+
+.MenuItem {
+  margin: 0 1rem;
+  list-style: none;
+}
+
+.MenuItem_link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem;
+  line-height: 100%;
+  color: $colorGreyDarker;
+  border-bottom: 0.25rem solid transparent;
+
+  &:hover {
+    color: $colorAccent;
+    border-bottom-color: $colorAccent;
+  }
+}
+
+.MenuItem_link___active {
+  color: $colorAccent;
+  border-bottom-color: $colorAccent;
+}
+
+.SocialMenu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.SocialMenu_item {
+  padding: 0.5rem;
+  color: $colorGreyDarker;
+
+  &:hover {
+    color: $colorAccent;
+  }
+}
