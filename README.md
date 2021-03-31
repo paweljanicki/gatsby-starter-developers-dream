@@ -1,6 +1,6 @@
 # Developers Dream Gatsby Starter
 
-Please visit [https://gatsby-starter-developers-dream.netlify.app](https://gatsby-starter-developers-dream.netlify.app) for more information.
+Please visit [https://developers-dream.frontwork.tech](https://developers-dream.frontwork.tech) for more information.
 
 ## Overview
 
@@ -8,7 +8,7 @@ Developers Dream is a Gatsby Starter build with TypeScript, MDX and SCSS modules
 It is intended to be used as a personal website or blog for developers.
 What can be typed is typed, there are a bunch of eslint rules in place, SCSS modules ensure that styles apply only locally.
 There is prettier config in place, csscomb for formatting your stylesheets and some other goodies.
-There is definitely room for improvement, I'm always happy to [hear your feedback](https://gatsby-starter-developers-dream.netlify.app/contact)
+There is definitely room for improvement, I'm always happy to [hear your feedback](https://developers-dream.frontwork.tech/contact)
 
 ## Creating new site using the starter
 
@@ -61,7 +61,7 @@ id: 'wder8233rrj'
 ---
 ```
 
-For more refer to [Frontmatter in the Docs](https://gatsby-starter-developers-dream.netlify.app/docs#frontmatter)
+For more refer to [Frontmatter in the Docs](https://developers-dream.frontwork.tech/docs#frontmatter)
 
 ### Markdown
 
@@ -78,27 +78,27 @@ Shortcodes are React components you can use in MDX without importing them
 
 Available shortcodes:
 
-1. [Video](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes-video)
+1. [Video](https://developers-dream.frontwork.tech/docs#shortcodes-video)
 
    `<Video url="https://www.youtube.com/embed/LdvPwr_77A0" />`
 
-2. [CodePen](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes-codepen)
+2. [CodePen](https://developers-dream.frontwork.tech/docs#shortcodes-codepen)
 
    `<CodePen id="eYNbGzV" height="400" tabs="js,result" />`
 
-3. [ExternalLink](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes-externallink)
+3. [ExternalLink](https://developers-dream.frontwork.tech/docs#shortcodes-externallink)
 
    `<ExternalLink url="https://mdxjs.com/">learn MDX here</ExternalLink>`
 
-4. [AnchorLink](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes-anchorlink)
+4. [AnchorLink](https://developers-dream.frontwork.tech/docs#shortcodes-anchorlink)
 
    `<AnchorLink to="/docs#frontmatter" title="Frontmatter" />`
 
-5. [BlogPostsList](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes-blogpostslist)
+5. [BlogPostsList](https://developers-dream.frontwork.tech/docs#shortcodes-blogpostslist)
 
    `<BlogPostsList />`
 
-Refer to the docs for [more details](https://gatsby-starter-developers-dream.netlify.app/docs#shortcodes)
+Refer to the docs for [more details](https://developers-dream.frontwork.tech/docs#shortcodes)
 
 ## Gatsby specific config
 
