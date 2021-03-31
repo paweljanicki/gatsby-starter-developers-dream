@@ -7,8 +7,6 @@ import { MainLayout } from '../../layouts';
 import * as styles from './PageSidebarTemplate.module.scss';
 import { SEO, HeroImage, widgets } from '../../components';
 import { Widget } from '../../../types';
-import { WEBSITE_URL, DEFAULT_AUTHOR } from '../../../config';
-import { IDefaultSeoMeta } from '../../../types/seo';
 
 interface IPageSidebarTemplateProps {
   mdx: {
@@ -17,10 +15,13 @@ interface IPageSidebarTemplateProps {
     frontmatter: {
       title: string;
       slug: string;
+      publishedTime: string;
       sidebar: Widget[];
       description?: string;
       author?: string;
       heroImage?: any;
+      featuredImage?: any;
+      featuredImageAlt?: string;
       cssClasses?: string;
       id?: string;
       comments?: boolean;
@@ -33,14 +34,7 @@ const PageSidebarTemplate = ({
 }: {
   data: IPageSidebarTemplateProps;
 }): JSX.Element => {
-  const url = `${WEBSITE_URL}/${mdx.frontmatter.slug}`;
-  const seoConfig: IDefaultSeoMeta = {
-    title: mdx.frontmatter.title,
-    description: mdx.frontmatter.description || mdx.excerpt,
-    author: mdx.frontmatter.author || DEFAULT_AUTHOR,
-    url,
-    image: ``,
-  };
+  const url = `${process.env.GATSBY_WEBSITE_URL}/${mdx.frontmatter.slug}`;
   const disqusConfig = {
     url: url,
     identifier: mdx.frontmatter.id,
@@ -50,7 +44,12 @@ const PageSidebarTemplate = ({
   const displayComments = mdx.frontmatter.comments && !!mdx.frontmatter.id;
   return (
     <MainLayout>
-      <SEO config={seoConfig}></SEO>
+      <SEO
+        frontmatter={mdx.frontmatter}
+        excerpt={mdx.excerpt}
+        type="website"
+        url={url}
+      ></SEO>
       <main
         className={`${styles.main} ${
           mdx.frontmatter.cssClasses ? mdx.frontmatter.cssClasses : ``
@@ -93,6 +92,7 @@ export const pageQuery = graphql`
         slug
         description
         author
+        publishedTime
         heroImage {
           childImageSharp {
             gatsbyImageData(
@@ -102,6 +102,16 @@ export const pageQuery = graphql`
             )
           }
         }
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        featuredImageAlt
         cssClasses
         id
         comments

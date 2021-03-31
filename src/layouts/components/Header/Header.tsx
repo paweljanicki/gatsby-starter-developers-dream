@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as styles from './Header.module.scss';
-import { MainMenuItems, HeaderSocialMediaMenu } from '../../../../config';
+import { mainMenuItems, HeaderSocialMediaMenu } from '../../../../config';
 
 export const Header = ({ className }: { className?: string }): JSX.Element => {
   const data: {
@@ -27,7 +27,7 @@ export const Header = ({ className }: { className?: string }): JSX.Element => {
       </Link>
       <div className={styles.MenusSection}>
         <ul className={styles.Menu}>
-          {MainMenuItems.map(item => (
+          {mainMenuItems.map(item => (
             <li className={styles.MenuItem} key={item.label}>
               <Link
                 className={`${styles.MenuItem_link} GhostLink`}

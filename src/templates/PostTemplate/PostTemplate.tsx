@@ -6,17 +6,25 @@ import { Disqus } from 'gatsby-plugin-disqus';
 import { MainLayout } from '../../layouts';
 import * as styles from './PostTemplate.module.scss';
 import { SEO } from '../../components';
-import { IDefaultSeoMeta } from '../../../types/seo';
-import { POSTS_PREFIX_PATH, WEBSITE_URL } from '../../../config/site.config';
+import { POSTS_PREFIX_PATH } from '../../../config/site.config';
 
 interface IPostTemplateProps {
   mdx: {
     body: string;
     excerpt: string;
-    frontmatter: Omit<IDefaultSeoMeta, 'url'> & {
+    frontmatter: {
       slug: string;
       id: string;
       comments: boolean;
+      title: string;
+      description: string;
+      seoTitle: string;
+      publishedTime: string;
+      modifiedTime: string;
+      author: string;
+      heroImage?: any;
+      featuredImage?: any;
+      featuredImageAlt?: string;
     };
   };
 }
@@ -26,13 +34,7 @@ const PostTemplate = ({
 }: {
   data: IPostTemplateProps;
 }): JSX.Element => {
-  const url = `${WEBSITE_URL}/${POSTS_PREFIX_PATH}/${mdx.frontmatter.slug}`;
-  const seoConfig: IDefaultSeoMeta = {
-    ...mdx.frontmatter,
-    description: mdx.frontmatter.description || mdx.excerpt,
-    url,
-    image: ``,
-  };
+  const url = `${process.env.GATSBY_WEBSITE_URL}/${POSTS_PREFIX_PATH}/${mdx.frontmatter.slug}`;
   const disqusConfig = {
     url: url,
     identifier: mdx.frontmatter.id,
@@ -44,7 +46,12 @@ const PostTemplate = ({
 
   return (
     <MainLayout>
-      <SEO config={seoConfig}></SEO>
+      <SEO
+        frontmatter={mdx.frontmatter}
+        excerpt={mdx.excerpt}
+        type="article"
+        url={url}
+      ></SEO>
       <main className={styles.main}>
         <h1>{mdx.frontmatter.title}</h1>
         <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -70,6 +77,25 @@ export const pageQuery = graphql`
         author
         comments
         id
+        heroImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1920
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        featuredImageAlt
       }
       body
     }

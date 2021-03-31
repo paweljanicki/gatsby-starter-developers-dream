@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as styles from './TapBar.module.scss';
-import { MainMenuItems } from '../../../../config';
+import { mainMenuItems } from '../../../../config';
 
 export const TapBar = ({ className }: { className: string }): JSX.Element => (
   <div className={`${styles.TapBar} ${className}`}>
     <ul className={styles.Menu}>
-      {MainMenuItems.map(item => (
+      {mainMenuItems.map(item => (
         <li className={styles.MenuItem} key={item.label}>
           <Link
             className={styles.MenuItem_link}

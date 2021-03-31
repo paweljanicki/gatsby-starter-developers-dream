@@ -1,5 +1,4 @@
 export const POSTS_PREFIX_PATH = `blog`;
-export const WEBSITE_URL = `https://gatsby-starter-developers-dream.netlify.app`;
 export const CODEPEN_PROFILE_URL = `https://codepen.io/paweljanicki`;
 export const CODEPEN_USERNAME = `paweljanicki`;
 export const CODEPEN_DEFAULT_THEME = `dark`;

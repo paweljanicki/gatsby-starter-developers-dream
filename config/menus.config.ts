@@ -1,6 +1,6 @@
 import { IMenuItem, IIconMenuItem } from '../types/menu';
 
-export const MainMenuItems: IMenuItem[] = [
+export const mainMenuItems: IMenuItem[] = [
   {
     label: `Home`,
     path: `/`,

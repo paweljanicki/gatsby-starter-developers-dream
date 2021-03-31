@@ -1,6 +1,11 @@
 import { ITSConfigFn } from 'gatsby-plugin-ts-config';
+import dotenv from 'dotenv';
 
-import { mainMenuItems, SeoConfig, CONTENT_PATH } from '../config';
+import { mainMenuItems, seoConfig, CONTENT_PATH } from '../config';
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config: ITSConfigFn<'config'> = ({ projectRoot }) => ({
   siteMetadata: {
@@ -22,7 +27,14 @@ const config: ITSConfigFn<'config'> = ({ projectRoot }) => ({
     `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-plugin-next-seo`,
-      options: SeoConfig as any,
+      options: {
+        ...seoConfig,
+        twitter: {
+          handle: process.env.GATSBY_TWITTER_HANDLE || `@yourhandle`,
+          site: process.env.GATSBY_TWITTER_SITE || `@yoursite`,
+          cardType: `summary_large_image`,
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
